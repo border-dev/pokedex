@@ -1,34 +1,21 @@
 {
   "name": "my-tests",
   "version": "1.0.0",
-  "description": "Package for testing node functions in browser.",
-  "main": "main.js",
+  "description": "Pokemon Database web application",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "cd node_modules/build-starter && npm install; cd node_modules/core-ui && npm install;"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/chan1ks/my-tests.git"
+    "url": "https://gitlab.com/chan1ks/pokemon-database.git"
   },
-  "keywords": [
-    "test"
-  ],
   "author": "Morgan Worrell",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "browserify": "^11.2.0",
-    "gulp": "^3.9.0",
-    "gulp-connect": "^2.2.0",
-    "gulp-ruby-sass": "^2.0.3",
-    "vinyl-source-stream": "^1.1.0"
+    "gulp": "^3.9.0"
   },
   "dependencies": {
-    "a": "^1.0.1",
-    "angular": "^1.4.7",
-    "angular-animate": "^1.4.7",
-    "angular-ui-bootstrap": "^0.13.4",
-    "angular-ui-router": "^0.2.15",
-    "jquery-latest": "^1.9.0",
-    "lodash": "^3.10.1"
+    "build-starter": "git+https://gitlab.com/chan1ks/build-starter.git#Development",
+    "core-ui": "git+https://gitlab.com/chan1ks/pokemon-database-core-ui.git#Development"
   }
 }
