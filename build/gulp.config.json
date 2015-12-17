@@ -1,0 +1,8 @@
+{
+  "modules": {
+    "core-ui": "../node_modules/core-ui/client/src/app/core/"
+  },
+  "coreTasksDir": "../node_modules/build-starter/build/tasks/",
+  "localTasksDir": "./tasks/",
+  "packageJson": "../package.json"
+}
