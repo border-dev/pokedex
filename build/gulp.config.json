@@ -1,8 +1,44 @@
 {
-  "modules": {
-    "core-ui": "../node_modules/core-ui/client/src/app/core/"
-  },
-  "coreTasksDir": "../node_modules/build-starter/build/tasks/",
-  "localTasksDir": "./tasks/",
-  "packageJson": "../package.json"
+    "appDist":          "../dist/",
+    "assetsDist":       "../dist/assets/",
+
+    "appSrc":           "../client/src/app/**/*",
+    "appMock":          "../client/test/e2e/**/*",
+
+    "apiUrl":           "",
+    "apiUrl.mock":      "",
+
+    "stylesUrl":        "",
+
+    "server": {
+        "express":      false,
+        "browserSync":  true
+    },
+
+    "browserify": {
+        "watchify":     true
+    },
+
+    "html": {
+        "jade":         false,
+        "src":          "../client/src/app/**/*"
+    },
+    "css": {
+        "scss":         false,
+        "less":         false
+    },
+    "js": {
+        "ts": true,
+        "coffee": false
+    },
+    "assets": {
+        "img": "../client/src/assets/images",
+        "fonts": "../client/src/assets/fonts"
+    },
+
+    "modules": "",
+
+    "buildTasksDir": "../node_modules/build-starter/build/tasks/",
+    "localTasksDir": "./tasks/",
+    "packageJson": "../package.json"
 }
