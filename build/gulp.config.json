@@ -1,38 +1,25 @@
 {
     "appDist":          "../dist/",
     "assetsDist":       "../dist/assets/",
-
     "appSrc":           "../client/src/app/**/*",
     "appMock":          "../client/test/e2e/**/*",
-
     "apiUrl":           "",
     "apiUrlMock":       "",
-
     "stylesUrl":        "",
     "assets": {
         "img":          "../client/src/assets/images/",
         "fonts":        "../client/src/assets/fonts/"
     },
-
     "buildTasksDir":    "../node_modules/build-starter/build/tasks/",
     "localTasksDir":    "./tasks/",
     "packageJson":      "../package.json",
-
     "servers": {
         "express":      false,
         "browserSync":  true
     },
-
     "compilers": {
         "jade":         false,
         "scss":         false,
-        "ts":           true,
-        "coffee":       false
-    },
-
-    "lib":              "../client/lib/",
-    "lint":             "../client/",
-
-    "extensions":       [ "html", "jade", "css", "scss", "ts", "js", "coffee" ]
-
+        "ts":           true
+    }
 }

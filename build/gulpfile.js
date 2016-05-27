@@ -22,13 +22,3 @@ function getTask(task, dir) {
 });
 
 gulp.task("default", []);
-
-/*
-function getModule(task, dir) {
-
-}
-
-[].forEach(function (task) {
-    getModule(task, paths.localTasksDir);
-});
-*/
