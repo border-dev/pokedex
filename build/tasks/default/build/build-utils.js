@@ -1,78 +1,50 @@
 /*
- Builds the application's js files with browserify and watchify plugin based on the
- environment and task run.
- E.g.:
- - gulp build-dev runs global.environment = 'dev'
- - gulp build-prod runs global.environment = 'prod'
- */
+* Compiles ts scripts and extracts sourcemaps to same location
+*
+* */
 
 'use strict';
 
 module.exports = function (gulp, paths) {
-    var browserify = require('browserify'),
-        watchify = require('watchify'),
-        uglify = require('gulp-uglify'),
-        streamify = require('gulp-streamify'),
-        preprocessify = require('preprocessify'),
-        source = require('vinyl-source-stream'),
-        exorcist = require('exorcist'),
+    var uglify = require('gulp-uglify'),
+        ts = require('gulp-typescript'),
+        sourcemaps = require('gulp-sourcemaps'),
         gutil = require('gulp-util'),
         gulpif = require('gulp-if'),
         handleErrors = require('../../../utils/handleErrors'),
         eventLogger = require('../../../utils/eventLogger');
 
-    var b;
-
     function buildApp(env) {
         var apiUrl = paths['apiUrl'];
         var stylesEnv = paths['stylesUrl'];
         var appDist = paths['appDist'];
+        var appSrc = paths['appSrc'];
         var appRoot = global.isMock ? paths['appMock'] : paths['appSrc'];
+
+        var tsProject = ts.createProject('../../../tsconfig.json');
 
         gutil.log('appRoot', gutil.colors.magenta(appRoot));
         gutil.log('env', gutil.colors.magenta(env));
         gutil.log('stylesEnv', gutil.colors.magenta(stylesEnv));
 
-        b = browserify({
-            cache: {},
-            packageCache: {},
-            fullPaths: true,
-            entries: [appRoot],
-            debug: env != 'prod'
-        });
-
-        if (global.isWatching) {
-            gutil.log('Watching app bundle');
-            b = watchify(b, {
-                ignoreWatch: ['**/node_modules/**']
-            });
-            // Rebundle with watchify on changes.
-            b.on('update', bundle);
-        }
-
-        // Log when bundling starts
+        // Log when compiling starts
         gutil.log('baseApiUrl:', gutil.colors.magenta());
         gutil.log('styles:', gutil.colors.magenta());
 
-        function bundle() {
+        function compile() {
             eventLogger.start("'bundle'");
-            return b
-                .transform(preprocessify({
-                    "baseApiUrl": apiUrl,
-                    "styleEnv": stylesEnv
-                }))
-                .bundle()
-                .on('error', handleErrors)
-                // .pipe(gulpif(env != 'prod', exorcist('app.js.map')))
-                .pipe(source('app.js'))
-                // .pipe(gulpif(env == 'prod', streamify(uglify())))
+            return gulp.src(appSrc + '.ts')
+                .pipe(sourcemaps.init())
+                .pipe(ts(tsProject))
+                .pipe(sourcemaps.write(appDist))
+                //.pipe(uglify())
                 .pipe(gulp.dest(appDist))
                 .on('end', function () {
                     eventLogger.end("'bundle'");
                 });
         }
 
-        return bundle();
+        return compile();
     }
 
     return {

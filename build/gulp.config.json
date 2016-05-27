@@ -6,39 +6,33 @@
     "appMock":          "../client/test/e2e/**/*",
 
     "apiUrl":           "",
-    "apiUrl.mock":      "",
+    "apiUrlMock":       "",
 
     "stylesUrl":        "",
+    "assets": {
+        "img":          "../client/src/assets/images/",
+        "fonts":        "../client/src/assets/fonts/"
+    },
 
-    "server": {
+    "buildTasksDir":    "../node_modules/build-starter/build/tasks/",
+    "localTasksDir":    "./tasks/",
+    "packageJson":      "../package.json",
+
+    "servers": {
         "express":      false,
         "browserSync":  true
     },
 
-    "browserify": {
-        "watchify":     true
-    },
-
-    "html": {
+    "compilers": {
         "jade":         false,
-        "src":          "../client/src/app/**/*"
-    },
-    "css": {
         "scss":         false,
-        "less":         false
-    },
-    "js": {
-        "ts": true,
-        "coffee": false
-    },
-    "assets": {
-        "img": "../client/src/assets/images",
-        "fonts": "../client/src/assets/fonts"
+        "ts":           true,
+        "coffee":       false
     },
 
-    "modules": "",
+    "lib":              "../client/lib/",
+    "lint":             "../client/",
 
-    "buildTasksDir": "../node_modules/build-starter/build/tasks/",
-    "localTasksDir": "./tasks/",
-    "packageJson": "../package.json"
+    "extensions":       [ "html", "jade", "css", "scss", "ts", "js", "coffee" ]
+
 }
