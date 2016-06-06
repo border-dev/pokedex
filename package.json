@@ -1,21 +1,31 @@
 {
-  "name": "my-tests",
+  "name": "pokemon-database",
   "version": "1.0.0",
+  "author": "Morgan Worrell",
+  "license": "MIT",
   "description": "Pokemon Database web application",
   "scripts": {
-    "install": "cd node_modules/build-starter && npm install; cd node_modules/core-ui && npm install;"
+    "postinstall": "typings install",
+    "typings": "typings"
   },
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/chan1ks/pokemon-database.git"
   },
-  "author": "Morgan Worrell",
-  "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "concurrently": "^2.0.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
   },
   "dependencies": {
-    "build-starter": "git+https://gitlab.com/chan1ks/build-starter.git#Development",
-    "core-ui": "git+https://gitlab.com/chan1ks/pokemon-database-core-ui.git#Development"
+    "angular2": "^2.0.0-beta.17",
+    "bootstrap": "^3.3.6",
+    "core-js": "^2.4.0",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.6",
+    "systemjs": "0.19.27",
+    "zone.js": "^0.6.12"
   }
 }

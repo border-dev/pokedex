@@ -5,3 +5,6 @@ public/
 .DS_Store
 build/node_modules
 node_modules
+typings
+
+npm-debug.log

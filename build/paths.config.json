@@ -1,0 +1,8 @@
+{
+    "dist":         "../dist/",
+    "tmp":          "../dist/temp/",
+    "src":          "../client/src/app/**/*",
+    "mock":         "../client/test/e2e/**/*",
+    "unit":         "../client/test/unit/**/*",
+    "api":          ""
+}
