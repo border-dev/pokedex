@@ -1,0 +1,8 @@
+{
+    "server":           "browserSync",
+    "compilers": {
+        "jade":         false,
+        "scss":         false,
+        "ts":           true
+    }
+}
